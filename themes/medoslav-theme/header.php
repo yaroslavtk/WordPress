@@ -46,23 +46,37 @@
                 )
             ) ?>
 
-            <form action="" class="search-form">
-                <input type="text" name="search">
-                <button class="search-form-btn">Пошук</button>
-            </form>
+            <div action="" class="search-form">
+            <?php echo do_shortcode('[fibosearch]'); ?>
+            </div>
 
-            <div data-aos="flip-down" class="top-brand">
+            <!-- <div data-aos="flip-down" class="top-brand">
                 <a href="<?php echo home_url('/') ?>"><img class="top-logo"
                         src="<?php echo get_template_directory_uri(); ?>/assets/img/logo/top_logo_no_slogan.png"
                         alt="Лого" height="50"></a>
-            </div>
+            </div> -->
 
-            <div class="user-enter"><button class="user-enter-btn">Вхід</button></div>
 
             <div class="top-btns">
-                <div class="search-btn">
+                <!-- <div class="search-btn">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/search.png" width="24"
                         height="24" alt="" class="search-ico">
+                </div> -->
+
+                <div class="user-enter-btn">
+                    <?php if (is_user_logged_in()) { ?>
+                        <a class="user-enter-link"
+                            href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"
+                            title="<?php _e('Мій обліковий запис', 'medoslav'); ?>"><img class="user-enter-ico"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/account.png" width="26"
+                                height="26" alt=""></a>
+                    <?php } else { ?>
+                        <a class="user-enter-link"
+                            href="<?php echo get_permalink(get_option('woocommerce_myaccount_page_id')); ?>"
+                            title="<?php _e('Вхід / Реєстрація', 'medoslav'); ?>"><img class="user-enter-ico"
+                                src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/enter.png" width="26"
+                                height="26" alt=""></a>
+                    <?php } ?>
                 </div>
 
                 <div class="wish-list-btn">
@@ -73,14 +87,14 @@
                 </div>
 
                 <div class="top-bin">
-                <a href="<?php echo wc_get_cart_url('/') ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/online-shopping.png" width="26"
-                        height="26" alt=""></a>
-                    <div class="producs-added"><span>0</span>
+                    <a href="<?php echo wc_get_cart_url() ?>" class="top-bin-btn"><img
+                            src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/online-shopping.png"
+                            width="26" height="26" alt=""></a>
+                    <div class="producs-added"><span><?php echo count( WC()->cart->get_cart()) ?></span>
                     </div>
                 </div>
             </div>
         </div>
-
     </nav>
 
     <main>
@@ -93,30 +107,12 @@
                 </div>
 
                 <?php wp_nav_menu(
-                            array(
-                                'theme_location' => 'menu-3',
-                                'container_class' => 'navigation-contacts',
-                                'menu_class' => 'navigation-contacts-list',
-                            )
-                        ) ?>
-
-                    <!-- <ul class="navigation-contacts-list">
-                        <li>+38(066)12-34-567</li>
-                        <li>Пн-Пн 9:00-18:00</li>
-                        
-                        <li class="social-logo">
-                            <a href="#"><img class="social-ico" alt="Instagram"  src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/instagram.png" width="30"
-                                    height="30"></a>
-                            <a href="#"><img class="social-ico" alt="Facebook"  src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/facebook.png" width="30"
-                                    height="30"></a>
-                            <a href="#"><img class="social-ico" alt="Telegram"  src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/telegram.png" width="30"
-                                    height="30"></a>
-                            <a href="#"><img class="social-ico" alt="Viber"  src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/viber.png" width="30"
-                                    height="30"></a>
-                            <a href="#"><img class="social-ico" alt="YouTube"  src="<?php echo get_template_directory_uri(); ?>/assets/img/ico/youtube.png" width="30"
-                                    height="30"></a>
-                        </li>
-                    </ul> -->
+                    array(
+                        'theme_location' => 'menu-3',
+                        'container_class' => 'navigation-contacts',
+                        'menu_class' => 'navigation-contacts-list',
+                    )
+                ) ?>
 
             </nav>
         </div>
