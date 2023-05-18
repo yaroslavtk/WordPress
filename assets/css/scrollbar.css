@@ -1,0 +1,28 @@
+::-webkit-scrollbar {
+    width: 16px;
+}
+
+/* 1 - вертикальный скроллбар */
+::-webkit-scrollbar:horizontal {
+    height: 16px;
+}
+
+/* 1 - горизонтальный скроллбар */
+/*::-webkit-scrollbar-button {background: #BFC5C1;} 2 - кнопка */
+::-webkit-scrollbar-track {
+    background: #BFC5C1;
+}
+
+/* 3 - трек */
+::-webkit-scrollbar-track-piece {
+    background: #fcfcfc;
+}
+
+/* 4 – видимая часть трека */
+::-webkit-scrollbar-thumb {
+    background: #ADC4B6;
+    border-radius: 0px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 5 - ползунок */
